@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import './AddCategoryForm.css'
 import LinkButton from '../LinkButton/LinkButton'
+import MuchToDoContext from '../../MuchToDoContext';
 export default class AddCategoryForm extends Component {
+  static contextType = MuchToDoContext;
+
   render() {
       return <>
           <section>

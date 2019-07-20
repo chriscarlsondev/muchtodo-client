@@ -4,8 +4,8 @@ import './IncompleteTaskItem.css'
 export default class TaskItem extends Component {
   render() {
     return <>
-            <input type="checkbox" name="task1" id="task1" />
-            <label htmlFor="task1">Task #1</label> | Category 1, Category 2<br />
+            <input type="checkbox" id={this.props.id} />
+            <label htmlFor={this.props.id}>{this.props.taskName}</label> | {this.props.taskCategory}<br />
     </>
   }
 }

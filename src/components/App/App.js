@@ -7,65 +7,69 @@ import HomePage from '../../routes/HomePage/HomePage'
 import AddNewTaskPage from '../../routes/AddNewTaskPage/AddNewTaskPage'
 import AddNewCategoryPage from '../../routes/AddNewCategoryPage/AddNewCategoryPage'
 import { Route, Switch } from 'react-router-dom'
+import MuchToDoContext from '../../MuchToDoContext';
 import './Normalize.css'
 import './App.css'
 
 class App extends Component {
-  state = {
-    IncompleteTasks: [
-      {
-        id: '1',
-        taskName: 'Task #1',
-        taskDueDate: '07/20/2019',
-        category: 1
-      },
-      {
-        id: '1',
-        taskName: 'Example',
-        taskDueDate: '07/01/2019',
-        category: 1
-      },
-      {
-        id: '3',
-        taskName: 'Task #3',
-        taskDueDate: '',
-        category: ''
-      }
-    ],
-    CompletedTasks: [
-      {
-        id: '4',
-        taskName: 'Task #4',
-        taskDueDate: '',
-        category: 2
-      },
-      {
-        id: '5',
-        taskName: 'Task #5',
-        taskDueDate: '',
-        category: ''
-      },
-      {
-        id: '6',
-        taskName: 'Task #6',
-        taskDueDate: '',
-        category: ''
-      }
-    ],
-    Categories: [
-      {
-        id: '1',
-        categoryName: 'Personal'
-      },
-      {
-        id: '2',
-        categoryName: 'Work'
-      }
-    ]
+  constructor(props) {
+    super(props)
+    this.state = {
+      IncompleteTasks: [
+        {
+          id: '1',
+          taskName: 'Task #1',
+          taskDueDate: '07/20/2019',
+          taskCategory: 1
+        },
+        {
+          id: '2',
+          taskName: 'Task #2',
+          taskDueDate: '07/01/2019',
+          taskCategory: 2
+        },
+        {
+          id: '3',
+          taskName: 'Task #3',
+          taskDueDate: '',
+          taskCategory: ''
+        }
+      ],
+      CompletedTasks: [
+        {
+          id: '4',
+          taskName: 'Task #4',
+          taskDueDate: '',
+          taskCategory: 2
+        },
+        {
+          id: '5',
+          taskName: 'Task #5',
+          taskDueDate: '',
+          taskCategory: ''
+        },
+        {
+          id: '6',
+          taskName: 'Task #6',
+          taskDueDate: '',
+          taskCategory: ''
+        }
+      ],
+      Categories: [
+        {
+          id: '1',
+          categoryName: 'Personal'
+        },
+        {
+          id: '2',
+          categoryName: 'Work'
+        }
+      ]
+    }
   }
 
   // Add Task
-  addTask = (newTask) => {
+  handleAddTask = (newTask) => {
     let newIncompleteTasksList = this.state.IncompleteTasks;
     newIncompleteTasksList.push(newTask);
     this.setState({
@@ -73,8 +77,8 @@ class App extends Component {
     })
   }
 
-  // Add Category
-  addCategory = (newCategory) => {
+  // Add New Category
+  handleAddCategory = (newCategory) => {
     let newCategories = this.state.Categories;
     newCategories.push(newCategory);
     this.setState({
@@ -83,7 +87,7 @@ class App extends Component {
   }
 
   // Mark Task Complete
-  markTaskComplete = (completedTask) => {
+  handleMarkTaskComplete = (completedTask) => {
     let newIncompleteTasksList = this.state.IncompleteTasks.filter(task => task.id !== completedTask.id);
     let newCompletedTasksList = this.state.CompletedTasks.push(completedTask);
     this.setState({
@@ -93,8 +97,16 @@ class App extends Component {
   }
 
   render() {
+    const contextValue = {
+      IncompleteTasks: this.state.IncompleteTasks,
+      CompletedTasks: this.state.CompletedTasks,
+      handleAddTask: this.handleAddTask,
+      handleAddCategory: this.handleAddCategory,
+      handleMarkTaskComplete: this.handleMarkTaskComplete,
+    }
     return (
       <>
+        <MuchToDoContext.Provider value={contextValue}>
         <nav role="navigation">
           <Navigation />
         </nav>
@@ -127,7 +139,8 @@ class App extends Component {
         </main>
         <footer>
           <Footer />
-        </footer>
+          </footer>
+          </MuchToDoContext.Provider>
       </>
     )
   }

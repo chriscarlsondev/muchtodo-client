@@ -4,7 +4,7 @@ import './CompletedTaskItem.css'
 export default class CompletedTaskItem extends Component {
   render() {
     return <>
-        <p><span className="completed-task-name">Task #4</span> | Category 2</p>
+        <p><span className="completed-task-name">{this.props.taskName}</span> | {this.props.taskCategory}</p>
     </>
   }
 }

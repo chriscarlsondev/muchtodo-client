@@ -1,11 +1,20 @@
 import React, { Component } from 'react'
 import './CompletedTaskList.css'
 import CompletedTaskItem from '../CompletedTaskItem/CompletedTaskItem'
+import MuchToDoContext from '../../MuchToDoContext';
 
 export default class CompletedTaskList extends Component {
+  static contextType = MuchToDoContext;
+
   render() {
-      return <>
-          <CompletedTaskItem />
+    const { CompletedTasks } = this.context
+    return <>
+          {CompletedTasks.map(task =>
+            <CompletedTaskItem
+              key={task.id}
+              {...task}
+            />
+          )}
     </>
   }
 }

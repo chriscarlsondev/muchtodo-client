@@ -7,9 +7,7 @@ import './index.css';
 
 ReactDOM.render(
     <BrowserRouter>
-      {/* <MuchToDoProvider> */}
           <App />
-      {/* </MuchToDoProvider> */}
     </BrowserRouter>,
     document.getElementById('root')
   )

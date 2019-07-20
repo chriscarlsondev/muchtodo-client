@@ -2,8 +2,12 @@ import React, { Component } from 'react'
 import './AddTaskForm.css'
 import { Link } from 'react-router-dom'
 import LinkButton from '../LinkButton/LinkButton'
+import MuchToDoContext from '../../MuchToDoContext';
 
 export default class AddTaskForm extends Component {
+
+  static contextType = MuchToDoContext;
+
   render() {
       return <>
          <section>
