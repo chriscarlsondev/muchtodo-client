@@ -9,12 +9,7 @@
     text-align: center;
     line-height: 1.5;
   }
-  
-  footer {
-    background-color: #aaa;
-    padding: 1%;
-  }
-  
+
   section {
     min-height: 200px;
     padding: 1% 0;
@@ -24,5 +19,3 @@
   section:nth-child(even) {
     background-color: #ddd;
   }
-  
-  
