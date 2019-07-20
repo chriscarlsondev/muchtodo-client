@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
+import LinkButton from '../../components/LinkButton/LinkButton'
 import IncompleteTaskList from '../../components/IncompleteTaskList/IncompleteTaskList'
 import CompletedTaskList from '../../components/CompletedTaskList/CompletedTaskList'
 
 export default class HomePage extends Component {
   render() {
     return <>
-       <section>
-        <button>+ Add Task</button>
-        <button>+ Add Task Category</button>
+      <section>
+        <LinkButton to='/addnewtask'>+ Add Task</LinkButton>
+        <LinkButton to='/addnewcategory'>+ Add New Category</LinkButton>
       </section>
       <section>
         <header>
