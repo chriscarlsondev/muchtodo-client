@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import LinkButton from '../../components/LinkButton/LinkButton'
 export default class LandingPage extends Component {
   render() {
     return <>
@@ -28,9 +28,7 @@ export default class LandingPage extends Component {
         <header>
             <h3>Get Started Now. There's Much To Do.</h3>
         </header>
-        <form className='get-started'>
-            <button type='submit'>Get Started</button>
-        </form>
+        <LinkButton to='/home'>Get Started</LinkButton>
         </section>
     </>
   }
