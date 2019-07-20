@@ -82,6 +82,7 @@ class App extends Component {
     })
   }
 
+  // Mark Task Complete
   markTaskComplete = (completedTask) => {
     let newIncompleteTasksList = this.state.IncompleteTasks.filter(task => task.id !== completedTask.id);
     let newCompletedTasksList = this.state.CompletedTasks.push(completedTask);
