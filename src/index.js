@@ -1,6 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { BrowserRouter } from 'react-router-dom'
+import App from './components/App/App'
 import './index.css';
+// import { MuchToDoProvider } from './contexts/MuchToDoContext'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
+    <BrowserRouter>
+      {/* <MuchToDoProvider> */}
+          <App />
+      {/* </MuchToDoProvider> */}
+    </BrowserRouter>,
+    document.getElementById('root')
+  )
