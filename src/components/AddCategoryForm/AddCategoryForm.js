@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './AddCategoryForm.css'
-
+import LinkButton from '../LinkButton/LinkButton'
 export default class AddCategoryForm extends Component {
   render() {
       return <>
@@ -14,7 +14,7 @@ export default class AddCategoryForm extends Component {
             <input type="text" id="category-name" name="category-name" placeholder="Personal" required />
           </div>
           <div className="form-section">
-            <button type="submit">Add Category</button>
+            <button type="submit">Add Category</button> <LinkButton to='/home'>Cancel</LinkButton>
           </div>
               </form>
               </section>

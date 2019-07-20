@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './AddTaskForm.css'
 import { Link } from 'react-router-dom'
+import LinkButton from '../LinkButton/LinkButton'
 
 export default class AddTaskForm extends Component {
   render() {
@@ -28,7 +29,7 @@ export default class AddTaskForm extends Component {
             <input type="date" name="task-due-date" id="task-due-date" />
           </div>
           <div className="form-section">
-            <button type="submit">Add Task</button>
+              <button type="submit">Add Task</button> <LinkButton to='/home'>Cancel</LinkButton>
           </div>
           </form>
       </section>
