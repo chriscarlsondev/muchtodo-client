@@ -74,13 +74,23 @@ class App extends Component {
     }
   }
 
-  // Add Task
-  handleAddTask = (newTask) => {
+  // Add Incomplete Task
+  handleAddNewIncompleteTask = (newTask) => {
     let newIncompleteTasksList = this.state.IncompleteTasks;
     newTask.id = newIncompleteTasksList.length;
     newIncompleteTasksList.push(newTask);
     this.setState({
       IncompleteTasks: newIncompleteTasksList
+    })
+  }
+
+  // Add Completed Task
+  handleAddNewCompleteTask = (newCompleteTask) => {
+    let newCompleteTasksList = this.state.CompletedTasks;
+    newCompleteTask.id = newCompleteTasksList.length;
+    newCompleteTasksList.push(newCompleteTask);
+    this.setState({
+      CompletedTasks: newCompleteTasksList
     })
   }
 
@@ -95,12 +105,13 @@ class App extends Component {
   }
 
   // Mark Task Complete
-  handleMarkTaskComplete = (completedTask) => {
-    let newIncompleteTasksList = this.state.IncompleteTasks.filter(task => task.id !== completedTask.id);
-    let newCompletedTasksList = this.state.CompletedTasks.push(completedTask);
+  handleMarkTaskComplete = (completedTaskId) => {
+    let currentIncompletedTasksList = this.state.IncompleteTasks;
+    let completedTask = currentIncompletedTasksList.find(task => task.id === completedTaskId);
+    let newIncompleteTasksList = this.state.IncompleteTasks.filter(task => task.id !== completedTaskId);
+    this.handleAddNewCompleteTask(completedTask);
     this.setState({
-      IncompleteTasks: newIncompleteTasksList,
-      CompletedTasks: newCompletedTasksList
+      IncompleteTasks: newIncompleteTasksList
     })
   }
 
@@ -109,7 +120,7 @@ class App extends Component {
       IncompleteTasks: this.state.IncompleteTasks,
       CompletedTasks: this.state.CompletedTasks,
       Categories: this.state.Categories,
-      handleAddTask: this.handleAddTask,
+      handleAddNewIncompleteTask: this.handleAddNewIncompleteTask,
       handleAddCategory: this.handleAddCategory,
       handleMarkTaskComplete: this.handleMarkTaskComplete,
     }

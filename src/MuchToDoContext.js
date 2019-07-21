@@ -4,7 +4,7 @@ const MuchToDoContext = React.createContext({
     IncompleteTasks: [],
     CompletedTasks: [],
     Categories: [],
-    handleAddTask:  () => {},
+    handleAddNewIncompleteTask:  () => {},
     handleAddCategory:  () => {},
     handleMarkTaskComplete:  () => {},
 })

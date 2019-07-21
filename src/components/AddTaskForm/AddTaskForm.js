@@ -9,12 +9,16 @@ export default class AddTaskForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    let newTaskCategory = e.target.taskcategory.value;
+    if (newTaskCategory != "") {
+      newTaskCategory = parseInt(newTaskCategory);
+    }
     const newTask = {
       taskName: e.target.taskname.value,
       taskDueDate: e.target.taskduedate.value,
-      taskCategory: parseInt(e.target.taskcategory.value),
+      taskCategory: newTaskCategory,
     }
-    this.context.handleAddTask(newTask);
+    this.context.handleAddNewIncompleteTask(newTask);
     this.props.history.push('/home');
   }
 
