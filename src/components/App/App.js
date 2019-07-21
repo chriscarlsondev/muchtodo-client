@@ -20,13 +20,13 @@ class App extends Component {
           id: '1',
           taskName: 'Task #1',
           taskDueDate: '07/20/2019',
-          taskCategory: '1'
+          taskCategory: '0'
         },
         {
           id: '2',
           taskName: 'Task #2',
           taskDueDate: '07/01/2019',
-          taskCategory: '2'
+          taskCategory: '1'
         },
         {
           id: '3',
@@ -38,7 +38,7 @@ class App extends Component {
           id: '7',
           taskName: 'Task #7',
           taskDueDate: '1/1/2019',
-          taskCategory: '2'
+          taskCategory: '1'
         }
       ],
       CompletedTasks: [
@@ -46,7 +46,7 @@ class App extends Component {
           id: '4',
           taskName: 'Task #4',
           taskDueDate: '',
-          taskCategory: '2'
+          taskCategory: '1'
         },
         {
           id: '5',
@@ -63,11 +63,11 @@ class App extends Component {
       ],
       Categories: [
         {
-          id: '1',
+          id: '0',
           categoryName: 'Personal'
         },
         {
-          id: '2',
+          id: '1',
           categoryName: 'Work'
         }
       ]
@@ -86,6 +86,8 @@ class App extends Component {
   // Add New Category
   handleAddCategory = (newCategory) => {
     let newCategories = this.state.Categories;
+    newCategory.id = this.state.Categories.length+1;
+    console.log(newCategory);
     newCategories.push(newCategory);
     this.setState({
       Categories: newCategories
