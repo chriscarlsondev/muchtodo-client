@@ -10,13 +10,14 @@ export default class AddTaskForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     let newTaskCategory = e.target.taskcategory.value;
-    if (newTaskCategory != "") {
+    if (newTaskCategory !== "") {
       newTaskCategory = parseInt(newTaskCategory);
     }
     const newTask = {
       taskName: e.target.taskname.value,
       taskDueDate: e.target.taskduedate.value,
       taskCategory: newTaskCategory,
+      taskStatus: 'I'
     }
     this.context.handleAddNewIncompleteTask(newTask);
     this.props.history.push('/home');
@@ -40,7 +41,7 @@ export default class AddTaskForm extends Component {
             <div className="form-section">
               <h3>Task Categories (Optional)</h3>
               {this.context.Categories.map(cat =>
-                <><label htmlFor={cat.id}><input type="radio" name="taskcategory" value={cat.id} id={cat.id} />{cat.categoryName}</label><br /></>
+                <><label htmlFor={cat.id}><input type="radio" name="taskcategory" key={cat.id} value={cat.id} id={cat.id} />{cat.categoryName}</label><br /></>
               )}
             <Link to='/addnewcategory'>+ Add New Category</Link>
           </div>
