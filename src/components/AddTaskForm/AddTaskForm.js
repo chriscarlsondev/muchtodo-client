@@ -21,7 +21,7 @@ export default class AddTaskForm extends Component {
   handleClickCancel = () => {
     this.props.history.push('/home')
   };
-
+ 
   render() {
       return <>
          <section>
@@ -36,7 +36,7 @@ export default class AddTaskForm extends Component {
             <div className="form-section">
               <h3>Task Categories (Optional)</h3>
               {this.context.Categories.map(cat =>
-                <><label htmlFor={cat.id}><input key={cat.id} type="radio" name="taskcategory" value={cat.id} id={cat.id} />{cat.categoryName}</label><br /></>
+                <><label htmlFor={cat.id}><input type="radio" name="taskcategory" value={cat.id} id={cat.id} />{cat.categoryName}</label><br /></>
               )}
             <Link to='/addnewcategory'>+ Add New Category</Link>
           </div>

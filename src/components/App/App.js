@@ -78,7 +78,6 @@ class App extends Component {
   handleAddTask = (newTask) => {
     let newIncompleteTasksList = this.state.IncompleteTasks;
     newTask.id = newIncompleteTasksList.length;
-    console.log(newTask);
     newIncompleteTasksList.push(newTask);
     this.setState({
       IncompleteTasks: newIncompleteTasksList
