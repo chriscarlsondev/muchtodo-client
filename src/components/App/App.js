@@ -17,45 +17,45 @@ class App extends Component {
     this.state = {
       IncompleteTasks: [
         {
-          id: '1',
+          id: 1,
           taskName: 'Task #1',
           taskDueDate: '07/20/2019',
-          taskCategory: '0'
+          taskCategory: 0
         },
         {
-          id: '2',
+          id: 2,
           taskName: 'Task #2',
           taskDueDate: '07/01/2019',
-          taskCategory: '1'
+          taskCategory: 1
         },
         {
-          id: '3',
+          id: 3,
           taskName: 'Task #3',
           taskDueDate: '',
           taskCategory: ''
         },
         {
-          id: '7',
+          id: 7,
           taskName: 'Task #7',
           taskDueDate: '1/1/2019',
-          taskCategory: '1'
+          taskCategory: 1
         }
       ],
       CompletedTasks: [
         {
-          id: '4',
+          id: 4,
           taskName: 'Task #4',
           taskDueDate: '',
-          taskCategory: '1'
+          taskCategory: 1
         },
         {
-          id: '5',
+          id: 5,
           taskName: 'Task #5',
           taskDueDate: '',
           taskCategory: ''
         },
         {
-          id: '6',
+          id: 6,
           taskName: 'Task #6',
           taskDueDate: '',
           taskCategory: ''
@@ -63,11 +63,11 @@ class App extends Component {
       ],
       Categories: [
         {
-          id: '0',
+          id: 0,
           categoryName: 'Personal'
         },
         {
-          id: '1',
+          id: 1,
           categoryName: 'Work'
         }
       ]

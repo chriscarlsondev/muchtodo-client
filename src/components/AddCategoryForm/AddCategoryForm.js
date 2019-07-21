@@ -4,9 +4,6 @@ import MuchToDoContext from '../../MuchToDoContext';
 
 export default class AddCategoryForm extends Component {
 
-  constructor(props) {
-    super(props)
-  }
   static contextType = MuchToDoContext;
 
   handleSubmit = e => {
