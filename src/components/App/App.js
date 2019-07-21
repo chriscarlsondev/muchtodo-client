@@ -20,19 +20,25 @@ class App extends Component {
           id: '1',
           taskName: 'Task #1',
           taskDueDate: '07/20/2019',
-          taskCategory: 1
+          taskCategory: '1'
         },
         {
           id: '2',
           taskName: 'Task #2',
           taskDueDate: '07/01/2019',
-          taskCategory: 2
+          taskCategory: '2'
         },
         {
           id: '3',
           taskName: 'Task #3',
           taskDueDate: '',
           taskCategory: ''
+        },
+        {
+          id: '7',
+          taskName: 'Task #7',
+          taskDueDate: '1/1/2019',
+          taskCategory: '2'
         }
       ],
       CompletedTasks: [
@@ -40,7 +46,7 @@ class App extends Component {
           id: '4',
           taskName: 'Task #4',
           taskDueDate: '',
-          taskCategory: 2
+          taskCategory: '2'
         },
         {
           id: '5',
@@ -100,6 +106,7 @@ class App extends Component {
     const contextValue = {
       IncompleteTasks: this.state.IncompleteTasks,
       CompletedTasks: this.state.CompletedTasks,
+      Categories: this.state.Categories,
       handleAddTask: this.handleAddTask,
       handleAddCategory: this.handleAddCategory,
       handleMarkTaskComplete: this.handleMarkTaskComplete,
