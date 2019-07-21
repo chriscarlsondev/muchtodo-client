@@ -19,13 +19,13 @@ class App extends Component {
         {
           id: 0,
           taskName: 'Task #1',
-          taskDueDate: '07/20/2019',
+          taskDueDate: '2019-07-20',
           taskCategory: 0
         },
         {
           id: 1,
           taskName: 'Task #2',
-          taskDueDate: '07/01/2019',
+          taskDueDate: '2019-07-01',
           taskCategory: 1
         },
         {
@@ -37,7 +37,7 @@ class App extends Component {
         {
           id: 3,
           taskName: 'Task #7',
-          taskDueDate: '1/1/2019',
+          taskDueDate: '2019-01-01',
           taskCategory: 1
         }
       ],
@@ -77,6 +77,8 @@ class App extends Component {
   // Add Task
   handleAddTask = (newTask) => {
     let newIncompleteTasksList = this.state.IncompleteTasks;
+    newTask.id = newIncompleteTasksList.length;
+    console.log(newTask);
     newIncompleteTasksList.push(newTask);
     this.setState({
       IncompleteTasks: newIncompleteTasksList

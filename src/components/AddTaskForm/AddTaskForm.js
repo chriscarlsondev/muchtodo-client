@@ -1,12 +1,26 @@
 import React, { Component } from 'react'
 import './AddTaskForm.css'
 import { Link } from 'react-router-dom'
-import LinkButton from '../LinkButton/LinkButton'
 import MuchToDoContext from '../../MuchToDoContext';
 
 export default class AddTaskForm extends Component {
 
   static contextType = MuchToDoContext;
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const newTask = {
+      taskName: e.target.taskname.value,
+      taskDueDate: e.target.taskduedate.value,
+      taskCategory: parseInt(e.target.taskcategory.value),
+    }
+    this.context.handleAddTask(newTask);
+    this.props.history.push('/home');
+  }
+
+  handleClickCancel = () => {
+    this.props.history.push('/home')
+  };
 
   render() {
       return <>
@@ -14,26 +28,24 @@ export default class AddTaskForm extends Component {
         <header>
             <h2>Add New Task</h2>
         </header>
-         <form id="add-new-task">
+         <form id="add-new-task" onSubmit={this.handleSubmit}>
           <div className="form-section">
             <h3>Task Name</h3>
-            <input type="text" name="task-title" placeholder="Schedule a doctor's appointment" required />
-          </div>
-          <div className="form-section">
-            <h3>Task Categories (Optional)</h3>
-            <input type="checkbox" name="categories" id="cat1" />
-            <label htmlFor="cat1">Category 1</label><br />
-            <input type="checkbox" name="categories" id="cat2" />
-            <label htmlFor="cat2">Category 2</label><br />
+            <input type="text" name="taskname" placeholder="Schedule a doctor's appointment" required />
+            </div>
+            <div className="form-section">
+              <h3>Task Categories (Optional)</h3>
+              {this.context.Categories.map(cat =>
+                <><label htmlFor={cat.id}><input key={cat.id} type="radio" name="taskcategory" value={cat.id} id={cat.id} />{cat.categoryName}</label><br /></>
+              )}
             <Link to='/addnewcategory'>+ Add New Category</Link>
           </div>
           <div className="form-section">
             <h3>Due Date (Optional)</h3>
-            <label htmlFor="task-due-date">Due Date:</label>
-            <input type="date" name="task-due-date" id="task-due-date" />
+            <label htmlFor="task-due-date">Due Date:</label> <input type="date" name="taskduedate" id="task-due-date" />
           </div>
           <div className="form-section">
-              <button type="submit">Add Task</button> <LinkButton to='/home'>Cancel</LinkButton>
+              <button type="submit">Add Task</button> <button type="button" onClick={this.handleClickCancel}>Cancel</button>
           </div>
           </form>
       </section>
