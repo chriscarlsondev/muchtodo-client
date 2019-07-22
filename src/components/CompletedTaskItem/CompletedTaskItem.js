@@ -5,7 +5,7 @@ import './CompletedTaskItem.css'
 export default class CompletedTaskItem extends Component {
   render() {
     return <>
-      <li><span className="completed-task-name">{this.props.taskname}</span>  | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate : 'None'}</li>
+      <li><span className="completed-task-name">{this.props.taskname}</span>  | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate.split("T")[0] : 'None'}</li>
     </>
   }
 }

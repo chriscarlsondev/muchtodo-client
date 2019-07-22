@@ -11,7 +11,7 @@ export default class IncompleteTaskItem extends Component {
     return <>
       <input type="checkbox" id={this.props.id} onChange={this.context.handleMarkTaskComplete.bind(this, this.props.id)} />
       {' '}
-      {this.props.taskname} | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate : 'None'}<br />
+      {this.props.taskname} | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate.split("T")[0]: 'None'}<br />
     </>
   }
 }
