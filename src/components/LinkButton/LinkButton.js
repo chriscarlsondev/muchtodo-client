@@ -1,6 +1,5 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withRouter } from 'react-router'
+import { withRouter } from "react-router";
 
 const LinkButton = (props) => {
   const {
@@ -22,11 +21,6 @@ const LinkButton = (props) => {
       }}
       />
   )
-}
-
-LinkButton.propTypes = {
-  to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
 }
 
 export default withRouter(LinkButton)
