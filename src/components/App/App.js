@@ -112,8 +112,6 @@ class App extends Component {
       .catch(error => {
         console.error(error)
       })
-    
-
   }
 
   // Mark Task Complete
@@ -126,12 +124,7 @@ class App extends Component {
           return res.json().then(error => Promise.reject(error))
       })
       .then(() => {
-        let currentTasks = this.state.Tasks;
-        let taskToUpdate = currentTasks.findIndex(i => i.id === completedTaskId);
-        currentTasks[taskToUpdate].taskstatus = 'C';
-          this.setState({
-            Tasks: currentTasks
-          })
+        this.getAllTasks();
       })
       .catch(error => {
         console.error(error)
