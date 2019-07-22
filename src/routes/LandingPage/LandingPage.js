@@ -3,7 +3,7 @@ import LinkButton from '../../components/LinkButton/LinkButton'
 export default class LandingPage extends Component {
   render() {
       return <>
-=        <section className="landing-page-section">
+        <section className="landing-page-section">
         <header>
             <h3>Easily add new tasks</h3>
         </header>
