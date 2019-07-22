@@ -20,7 +20,7 @@ const LinkButton = (props) => {
         onClick && onClick(event)
         history.push(to)
       }}
-    />
+      />
   )
 }
 

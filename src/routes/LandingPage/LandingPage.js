@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import LinkButton from '../../components/LinkButton/LinkButton'
 export default class LandingPage extends Component {
   render() {
-    return <>
-        <section className="landing-page-section">
+      return <>
+=        <section className="landing-page-section">
         <header>
             <h3>Easily add new tasks</h3>
         </header>
@@ -29,7 +29,7 @@ export default class LandingPage extends Component {
             <h3>Get Started Now. There's Much To Do.</h3>
         </header>
         <LinkButton to='/home'>Get Started</LinkButton>
-        </section>
+              </section>
     </>
   }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './AddTaskForm.css'
-import { Link } from 'react-router-dom'
 import MuchToDoContext from '../../MuchToDoContext';
+import { Link } from 'react-router-dom'
 
 export default class AddTaskForm extends Component {
 
@@ -37,7 +37,7 @@ export default class AddTaskForm extends Component {
             <div className="form-section">
               <h3>Task Categories (Optional)</h3>
               {this.context.Categories.map((cat, i) => <section key={i}><label htmlFor={cat.id} key={i}><input type="radio" name="taskcategory" value={cat.id} id={cat.id} key={i}/> {cat.categoryname}</label><br /></section>)}
-            <Link to='/addnewcategory'>+ Add New Category</Link>
+            <Link to="/addnewcategory">+ Add New Category</Link>
           </div>
           <div className="form-section">
             <h3>Due Date (Optional)</h3>
