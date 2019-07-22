@@ -8,11 +8,13 @@ import AddNewTaskPage from '../../routes/AddNewTaskPage/AddNewTaskPage'
 import AddNewCategoryPage from '../../routes/AddNewCategoryPage/AddNewCategoryPage'
 import { Route, Switch } from 'react-router-dom'
 import MuchToDoContext from '../../MuchToDoContext';
+import { BrowserRouter } from 'react-router-dom'
 import './Normalize.css'
-import config from '../../config';
 import './App.css'
+import config from '../../config';
 
 class App extends Component {
+
   state = {
     Tasks: [],
     Categories: []
@@ -31,11 +33,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(config.TASKS_API_ENDPOINT, {
+    fetch(config.API_BASE_URL+'tasks/', {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `Bearer ${config.API_KEY}`
       }
     })
       .then(res => {
@@ -49,11 +50,10 @@ class App extends Component {
         console.error(error)
         this.setState({ error })
       })
-      fetch(config.CATEGORIES_API_ENDPOINT, {
+      fetch(config.API_BASE_URL+'categories/', {
         method: 'GET',
         headers: {
           'content-type': 'application/json',
-          'Authorization': `Bearer ${config.API_KEY}`
         }
       })
         .then(res => {
@@ -71,12 +71,11 @@ class App extends Component {
 
   // Add Incomplete Task
   handleAddNewIncompleteTask = (newTask) => {
-    fetch(config.TASKS_API_ENDPOINT, {
+    fetch(config.API_BASE_URL+'tasks/', {
       method: 'POST',
       body: JSON.stringify(newTask),
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${config.API_KEY}`
       }
     })
       .then(res => {
@@ -100,12 +99,11 @@ class App extends Component {
 
   // Add New Category
   handleAddCategory = (newCategory) => {
-    fetch(config.CATEGORIES_API_ENDPOINT, {
+    fetch(config.API_BASE_URL+'categories/', {
       method: 'POST',
       body: JSON.stringify(newCategory),
       headers: {
         'content-type': 'application/json',
-        'authorization': `bearer ${config.API_KEY}`
       }
     })
       .then(res => {
@@ -131,11 +129,10 @@ class App extends Component {
 
   // Mark Task Complete
   handleMarkTaskComplete = (completedTaskId) => {
-    fetch(config.TASKS_API_ENDPOINT + `${completedTaskId}`, {
+    fetch(config.API_BASE_URL+'tasks/'+completedTaskId, {
       method: 'PATCH',
       headers: {
         'content-type': 'application/json',
-        'authorization': `Bearer ${config.API_KEY}`
       },
     })
       .then(res => {
@@ -164,7 +161,7 @@ class App extends Component {
       handleMarkTaskComplete: this.handleMarkTaskComplete,
     }
     return (
-      <>
+      <BrowserRouter>
         <MuchToDoContext.Provider value={contextValue}>
         <nav role="navigation">
           <Navigation />
@@ -200,7 +197,7 @@ class App extends Component {
           <Footer />
           </footer>
           </MuchToDoContext.Provider>
-      </>
+      </BrowserRouter>
     )
   }
 }
