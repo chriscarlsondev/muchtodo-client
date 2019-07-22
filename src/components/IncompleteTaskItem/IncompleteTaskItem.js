@@ -4,13 +4,12 @@ import './IncompleteTaskItem.css'
 import MuchToDoContext from '../../MuchToDoContext';
 
 
-export default class TaskItem extends Component {
+export default class IncompleteTaskItem extends Component {
   static contextType = MuchToDoContext;
 
   render() {
-    const currentId = this.props.id;
     return <>
-      <input type="checkbox" id={currentId} onChange={this.context.handleMarkTaskComplete.bind(this, currentId)} />
+      <input type="checkbox" id={this.props.id} onChange={this.context.handleMarkTaskComplete.bind(this, this.props.id)} />
       {' '}
       {this.props.taskname} | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate : 'None'}<br />
     </>

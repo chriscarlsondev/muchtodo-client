@@ -8,7 +8,6 @@ import AddNewTaskPage from '../../routes/AddNewTaskPage/AddNewTaskPage'
 import AddNewCategoryPage from '../../routes/AddNewCategoryPage/AddNewCategoryPage'
 import { Route, Switch } from 'react-router-dom'
 import MuchToDoContext from '../../MuchToDoContext';
-import { BrowserRouter } from 'react-router-dom'
 import './Normalize.css'
 import './App.css'
 import config from '../../config';
@@ -32,12 +31,9 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
+  getAllTasks = () => {
     fetch(config.API_BASE_URL+'tasks/', {
-      method: 'GET',
-      headers: {
-        'content-type': 'application/json',
-      }
+      method: 'GET'
     })
       .then(res => {
         if (!res.ok) {
@@ -48,25 +44,28 @@ class App extends Component {
       .then(this.setTasks)
       .catch(error => {
         console.error(error)
-        this.setState({ error })
       })
-      fetch(config.API_BASE_URL+'categories/', {
-        method: 'GET',
-        headers: {
-          'content-type': 'application/json',
+  }
+
+  getAllCategories = () => {
+    fetch(config.API_BASE_URL+'categories/', {
+      method: 'GET'
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error))
         }
+        return res.json()
       })
-        .then(res => {
-          if (!res.ok) {
-            return res.json().then(error => Promise.reject(error))
-          }
-          return res.json()
-        })
-        .then(this.setCategories)
-        .catch(error => {
-          console.error(error)
-          this.setState({ error })
-        })
+      .then(this.setCategories)
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  componentDidMount() {
+    this.getAllTasks();
+    this.getAllCategories();
   }
 
   // Add Incomplete Task
@@ -83,15 +82,10 @@ class App extends Component {
           return res.json().then(error => Promise.reject(error))
         }
         return res.json()
-      })
-      .then(data => {
-        let currentTasks = this.state.Tasks;
-        newTask.id = currentTasks.length;
-        currentTasks.push(newTask);
-        this.setState({
-          Tasks: currentTasks
-        })
-      })
+      }).then(data => {
+          this.getAllTasks();
+        }
+      )
       .catch(error => {
         console.error(error)
       })
@@ -113,12 +107,7 @@ class App extends Component {
         return res.json()
       })
       .then(data => {
-        let newCategories = this.state.Categories;
-        newCategory.id = this.state.Categories.length+1;
-        newCategories.push(newCategory);
-        this.setState({
-          Categories: newCategories
-        })
+        this.getAllCategories();
       })
       .catch(error => {
         console.error(error)
@@ -130,10 +119,7 @@ class App extends Component {
   // Mark Task Complete
   handleMarkTaskComplete = (completedTaskId) => {
     fetch(config.API_BASE_URL+'tasks/'+completedTaskId, {
-      method: 'PATCH',
-      headers: {
-        'content-type': 'application/json',
-      },
+      method: 'PATCH'
     })
       .then(res => {
         if (!res.ok)
@@ -161,7 +147,6 @@ class App extends Component {
       handleMarkTaskComplete: this.handleMarkTaskComplete,
     }
     return (
-      <BrowserRouter>
         <MuchToDoContext.Provider value={contextValue}>
         <nav role="navigation">
           <Navigation />
@@ -197,7 +182,6 @@ class App extends Component {
           <Footer />
           </footer>
           </MuchToDoContext.Provider>
-      </BrowserRouter>
     )
   }
 }

@@ -21,9 +21,9 @@ export default class TaskList extends Component {
               <header>
                   <h2>Incomplete Tasks</h2>
               </header>
-        {incompleteTaskList.map(task =>
+        {incompleteTaskList.map((task, i) =>
             <IncompleteTaskItem
-              key={task.id}
+            key={i}
               {...task}
             />
               )}
@@ -33,9 +33,9 @@ export default class TaskList extends Component {
                   <h2>Completed Tasks</h2>
               </header>
               <ul>
-                {completedTaskList.map(task =>
-                    <CompletedTaskItem
-                    key={task.id}
+            {completedTaskList.map((task, i) =>
+              <CompletedTaskItem
+                key={i}
                     {...task}
                     />
                 )}
