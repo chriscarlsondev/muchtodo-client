@@ -36,9 +36,7 @@ export default class AddTaskForm extends Component {
             </div>
             <div className="form-section">
               <h3>Task Categories (Optional)</h3>
-              {this.context.Categories.map(cat =>
-                <><label htmlFor={cat.id}><input type="radio" name="taskcategory" key={cat.id} value={cat.id} id={cat.id} /> {cat.categoryname}</label><br /></>
-              )}
+              {this.context.Categories.map((cat, i) => <section key={i}><label htmlFor={cat.id} key={i}><input type="radio" name="taskcategory" value={cat.id} id={cat.id} key={i}/> {cat.categoryname}</label><br /></section>)}
             <Link to='/addnewcategory'>+ Add New Category</Link>
           </div>
           <div className="form-section">
