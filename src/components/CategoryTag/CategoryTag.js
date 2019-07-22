@@ -3,6 +3,12 @@ import MuchToDoContext from '../../MuchToDoContext';
 import './CategoryTag.css'
 
 export default class CategoryTag extends Component {
+
+    static defaultProps = {
+        Tasks: [],
+        Categories: []
+    };
+    
     static contextType = MuchToDoContext;
 
     render() {
@@ -10,7 +16,7 @@ export default class CategoryTag extends Component {
         if (this.props.taskcategory === "") {
             return (<span className='nocategorytag'>No category selected</span>);
         } else {
-            let category = Categories.find(cat => cat.id === this.props.taskcategory);
+            let category = Categories.find(cat => cat.id === parseInt(this.props.taskcategory));
             return (
 
                 <span className='categorytag'>
