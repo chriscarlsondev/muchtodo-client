@@ -144,14 +144,14 @@ class App extends Component {
       })
       .then(() => {
         let currentTasks = this.state.Tasks;
-        currentTasks[completedTaskId].taskstatus = 'C';
-        this.setState({
-          Tasks: currentTasks
-        })
+        let taskToUpdate = currentTasks.findIndex(i => i.id === completedTaskId);
+        currentTasks[taskToUpdate].taskstatus = 'C';
+          this.setState({
+            Tasks: currentTasks
+          })
       })
       .catch(error => {
         console.error(error)
-        this.setState({ error })
       })
   }
 
