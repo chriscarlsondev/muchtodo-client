@@ -9,7 +9,7 @@ export default class AddCategoryForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const category = {
-      categoryName: e.target.description.value
+      categoryname: e.target.description.value
     }
     this.context.handleAddCategory(category);
     this.props.history.push('/home');

@@ -5,12 +5,17 @@ import CompletedTaskItem from '../CompletedTaskItem/CompletedTaskItem'
 import MuchToDoContext from '../../MuchToDoContext';
 
 export default class TaskList extends Component {
+  static defaultProps = {
+    Tasks: [],
+    Categories: []
+  };
+  
   static contextType = MuchToDoContext;
 
   render() {
     const { Tasks } = this.context
-    let incompleteTaskList = Tasks.filter(task => task.taskStatus === 'I');
-    let completedTaskList = Tasks.filter(task => task.taskStatus === 'C');
+    let incompleteTaskList = Tasks.filter(task => task.taskstatus === 'I');
+    let completedTaskList = Tasks.filter(task => task.taskstatus === 'C');
       return <>
           <section>
               <header>

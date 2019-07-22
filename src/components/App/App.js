@@ -9,103 +9,150 @@ import AddNewCategoryPage from '../../routes/AddNewCategoryPage/AddNewCategoryPa
 import { Route, Switch } from 'react-router-dom'
 import MuchToDoContext from '../../MuchToDoContext';
 import './Normalize.css'
+import config from '../../config';
 import './App.css'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      Tasks: [
-        {
-          id: 0,
-          taskName: 'Task #1',
-          taskDueDate: '2019-07-20',
-          taskCategory: 0,
-          taskStatus: 'I'
-        },
-        {
-          id: 1,
-          taskName: 'Task #2',
-          taskDueDate: '2019-07-01',
-          taskCategory: 1,
-          taskStatus: 'I'
-        },
-        {
-          id: 2,
-          taskName: 'Task #3',
-          taskDueDate: '',
-          taskCategory: '',
-          taskStatus: 'I'
-        },
-        {
-          id: 3,
-          taskName: 'Task #7',
-          taskDueDate: '2019-01-01',
-          taskCategory: 1,
-          taskStatus: 'I'
-        },
-        {
-          id: 4,
-          taskName: 'Task #4',
-          taskDueDate: '',
-          taskCategory: 1,
-          taskStatus: 'C'
-        },
-        {
-          id: 5,
-          taskName: 'Task #5',
-          taskDueDate: '',
-          taskCategory: '',
-          taskStatus: 'C'
-        },
-        {
-          id: 6,
-          taskName: 'Task #6',
-          taskDueDate: '',
-          taskCategory: '',
-          taskStatus: 'C'
+  state = {
+    Tasks: [],
+    Categories: []
+  }
+
+  setTasks = Tasks => {
+    this.setState({
+      Tasks
+    })
+  }
+
+  setCategories = Categories => {
+    this.setState({
+      Categories
+    })
+  }
+
+  componentDidMount() {
+    fetch(config.TASKS_API_ENDPOINT, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${config.API_KEY}`
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error))
         }
-      ],
-      Categories: [
-        {
-          id: 0,
-          categoryName: 'Personal'
-        },
-        {
-          id: 1,
-          categoryName: 'Work'
+        return res.json()
+      })
+      .then(this.setTasks)
+      .catch(error => {
+        console.error(error)
+        this.setState({ error })
+      })
+      fetch(config.CATEGORIES_API_ENDPOINT, {
+        method: 'GET',
+        headers: {
+          'content-type': 'application/json',
+          'Authorization': `Bearer ${config.API_KEY}`
         }
-      ]
-    }
+      })
+        .then(res => {
+          if (!res.ok) {
+            return res.json().then(error => Promise.reject(error))
+          }
+          return res.json()
+        })
+        .then(this.setCategories)
+        .catch(error => {
+          console.error(error)
+          this.setState({ error })
+        })
   }
 
   // Add Incomplete Task
   handleAddNewIncompleteTask = (newTask) => {
-    let currentTasks = this.state.Tasks;
-    newTask.id = currentTasks.length;
-    currentTasks.push(newTask);
-    this.setState({
-      Tasks: currentTasks
+    fetch(config.TASKS_API_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify(newTask),
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${config.API_KEY}`
+      }
     })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error))
+        }
+        return res.json()
+      })
+      .then(data => {
+        let currentTasks = this.state.Tasks;
+        newTask.id = currentTasks.length;
+        currentTasks.push(newTask);
+        this.setState({
+          Tasks: currentTasks
+        })
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 
   // Add New Category
   handleAddCategory = (newCategory) => {
-    let newCategories = this.state.Categories;
-    newCategory.id = this.state.Categories.length+1;
-    newCategories.push(newCategory);
-    this.setState({
-      Categories: newCategories
+    fetch(config.CATEGORIES_API_ENDPOINT, {
+      method: 'POST',
+      body: JSON.stringify(newCategory),
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `bearer ${config.API_KEY}`
+      }
     })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error))
+        }
+        return res.json()
+      })
+      .then(data => {
+        let newCategories = this.state.Categories;
+        newCategory.id = this.state.Categories.length+1;
+        newCategories.push(newCategory);
+        this.setState({
+          Categories: newCategories
+        })
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    
+
   }
 
   // Mark Task Complete
   handleMarkTaskComplete = (completedTaskId) => {
-    let currentTasks = this.state.Tasks;
-    currentTasks[completedTaskId].taskStatus = 'C';
-    this.setState({
-      Tasks: currentTasks
+    fetch(config.TASKS_API_ENDPOINT + `${completedTaskId}`, {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+        'authorization': `Bearer ${config.API_KEY}`
+      },
     })
+      .then(res => {
+        if (!res.ok)
+          return res.json().then(error => Promise.reject(error))
+      })
+      .then(() => {
+        let currentTasks = this.state.Tasks;
+        currentTasks[completedTaskId].taskstatus = 'C';
+        this.setState({
+          Tasks: currentTasks
+        })
+      })
+      .catch(error => {
+        console.error(error)
+        this.setState({ error })
+      })
   }
 
   render() {

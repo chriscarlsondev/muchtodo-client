@@ -7,13 +7,14 @@ export default class CategoryTag extends Component {
 
     render() {
         const { Categories } = this.context;
-        if (this.props.categoryId === "") {
+        if (this.props.taskcategory === "") {
             return (<span className='nocategorytag'>No category selected</span>);
         } else {
-            let category = Categories.find(cat => cat.id === this.props.categoryId);
+            let category = Categories.find(cat => cat.id === this.props.taskcategory);
             return (
+
                 <span className='categorytag'>
-                    {category.categoryName}
+                    {category.categoryname}
                 </span>
             )
         }

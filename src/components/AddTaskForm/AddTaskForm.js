@@ -9,15 +9,11 @@ export default class AddTaskForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    let newTaskCategory = e.target.taskcategory.value;
-    if (newTaskCategory !== "") {
-      newTaskCategory = parseInt(newTaskCategory);
-    }
-    const newTask = {
-      taskName: e.target.taskname.value,
-      taskDueDate: e.target.taskduedate.value,
-      taskCategory: newTaskCategory,
-      taskStatus: 'I'
+    let newTask = {
+      taskname: e.target.taskname.value,
+      taskstatus: 'I',
+      taskduedate: e.target.taskduedate.value,
+      taskcategory: e.target.taskcategory.value
     }
     this.context.handleAddNewIncompleteTask(newTask);
     this.props.history.push('/home');
@@ -41,13 +37,13 @@ export default class AddTaskForm extends Component {
             <div className="form-section">
               <h3>Task Categories (Optional)</h3>
               {this.context.Categories.map(cat =>
-                <><label htmlFor={cat.id}><input type="radio" name="taskcategory" key={cat.id} value={cat.id} id={cat.id} />{cat.categoryName}</label><br /></>
+                <><label htmlFor={cat.id}><input type="radio" name="taskcategory" key={cat.id} value={cat.id} id={cat.id} />{cat.categoryname}</label><br /></>
               )}
             <Link to='/addnewcategory'>+ Add New Category</Link>
           </div>
           <div className="form-section">
             <h3>Due Date (Optional)</h3>
-            <label htmlFor="task-due-date">Due Date:</label> <input type="date" name="taskduedate" id="task-due-date" />
+            <label htmlFor="taskduedate">Due Date:</label> <input type="date" name="taskduedate" id="taskduedate" />
           </div>
           <div className="form-section">
               <button type="submit">Add Task</button> <button type="button" onClick={this.handleClickCancel}>Cancel</button>
