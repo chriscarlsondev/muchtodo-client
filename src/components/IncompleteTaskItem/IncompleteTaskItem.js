@@ -11,7 +11,8 @@ export default class TaskItem extends Component {
     const currentId = this.props.id;
     return <>
       <input type="checkbox" id={currentId} onChange={this.context.handleMarkTaskComplete.bind(this, currentId)} />
-      <label htmlFor={this.props.id}>{this.props.taskname}</label> | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate : 'None'}<br />
+      {' '}
+      {this.props.taskname} | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate : 'None'}<br />
     </>
   }
 }
