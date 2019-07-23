@@ -24,6 +24,7 @@ class App extends Component {
   }
 
   setCategories = Categories => {
+    Categories.sort((a, b) => (a.categoryname > b.categoryname) ? 1 : -1)
     this.setState({
       Categories
     })
