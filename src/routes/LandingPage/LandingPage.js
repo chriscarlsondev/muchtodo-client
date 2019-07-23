@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import LinkButton from '../../components/LinkButton/LinkButton'
+import HomepageScreenshot from './homepage-screenshot.png'
+import AddTaskScreenshot from './addtask-screenshot.png'
+import AddCategoryScreenshot from './addcategory-screenshot.png'
+
 export default class LandingPage extends Component {
   render() {
       return <>
@@ -7,21 +11,21 @@ export default class LandingPage extends Component {
         <header>
             <h2>Easily add new tasks</h2>
         </header>
-        <p>[<em>placeholder for screenshot of new task page interface</em>]</p>
+        <p><img src={AddTaskScreenshot} className="screenshot" alt="Screenshot of Add Task page" /></p>
         <p>MuchToDo allows you to quickly add new tasks.</p>
         </section>
         <section className="landing-page-section">
         <header>
             <h2>Create your own custom categories</h2>
         </header>
-        <p>[<em>placeholder for screenshot of add new category page interface</em>]</p>
+        <p><img src={AddCategoryScreenshot} className="screenshot" alt="Screenshot of Add Category page" /></p>
         <p>Keep your tasks well organized by creating custom categories.</p>
         </section>
         <section className="landing-page-section">
         <header>
             <h2>Assign an optional due date</h2>
         </header>
-        <p>[<em>placeholder for screenshot of adding a to do with a due date or due date being displayed for a task</em>]</p>
+        <p><img src={HomepageScreenshot} className="screenshot" alt="Screenshot of Homepage with due dates" /></p>
         <p>Assign a due date to your task to ensure tasks are completed on time</p>
         </section>
         <section className="landing-page-section">
