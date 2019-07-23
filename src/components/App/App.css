@@ -14,6 +14,10 @@ p {
   font-size: 1em;
 }
 
+a {
+  color: #2185d0;
+}
+
 main {
   margin: 5px;
 }
@@ -162,8 +166,6 @@ ul {
   margin: 0;
   padding: 0;
 }
-
-
 
 .optional {
   color: #CCC;
