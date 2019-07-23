@@ -9,11 +9,6 @@ An app that makes create and using your to do list easy. This means you can spen
 * JavaScript
 * JQuery
 
-### Back-End Technologies
-* Node
-* Express
-* PostgreSQL
-
 ## Features
 * Simple page for adding tasks
 * Ability to group your tasks into categories
