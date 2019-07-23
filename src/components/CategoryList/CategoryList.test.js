@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CategoryTag from './CategoryTag';
+import CategoryList from './CategoryList';
 
-it('CategoryTag renders without crashing', () => {
+it('CategoryList renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<CategoryTag />, div);
+  ReactDOM.render(<CategoryList />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
