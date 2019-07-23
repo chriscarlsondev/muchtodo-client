@@ -9,6 +9,10 @@ body {
   line-height: 1.5;
 }
 
+p {
+  font-size: 1em;
+}
+
 main {
   margin: 5px;
 }
@@ -95,6 +99,8 @@ nav a {
 input[type=text], input[type=date] {
   width: 100%;
   padding: 12px 20px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
   margin: 8px 0;
   box-sizing: border-box;
 }
@@ -104,13 +110,18 @@ input[type=checkbox] {
   padding: 0;
 }
 
+input[type=radio] {
+  margin: 0;
+  padding: 0;
+}
+
 textarea:focus, input:focus {
 	border: 2px solid #666;
 }
 
 label {
-  margin: 10px 0 10px 0;
   display: block;
+  font-size: 1em;
 }
 
 .categorytag {
