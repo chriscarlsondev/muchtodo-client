@@ -69,7 +69,8 @@ h1 {
 }
 
 .logo {
-  color: #2185d0;
+  width: 300px;
+  display: block;
 }
 
 
@@ -198,14 +199,14 @@ table {
 }
 
 th {
-  padding: .5em 0;
+  padding: 5px;
   border-bottom: 1px solid rgba(34,36,38,.1);
   font-weight: bold;
   background: #eee;
 }
 
 td {
-  padding: 1em 0;
+  padding: 5px;
   border-bottom: 1px solid rgba(34,36,38,.1);
 }
 
@@ -218,9 +219,9 @@ th.check-col {
 }
 
 th.task-col {
-  width: 67%;
+  width: 60%;
  }
 
 th.duedate-col{
-  width: 20%;
+  width: 30%;
  }
