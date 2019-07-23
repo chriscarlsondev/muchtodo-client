@@ -6,7 +6,7 @@ export default class HomePage extends Component {
     return <>
       <section>
         <LinkButton to='/addnewtask'>Add Task</LinkButton>
-        <LinkButton to='/addnewcategory'>Add New Category</LinkButton>
+        <LinkButton to='/addnewcategory'>Add Category</LinkButton>
       </section>
         <TaskList />
     </>
