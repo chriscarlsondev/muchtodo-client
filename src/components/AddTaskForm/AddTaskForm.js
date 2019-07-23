@@ -42,7 +42,7 @@ export default class AddTaskForm extends Component {
             <label htmlFor="taskduedate">Due Date <span className="optional">(Optional)</span></label> <input type="date" name="taskduedate" id="taskduedate" />
           </div>
           <div className="form-section">
-              <button type="submit">Add Task</button> <button type="button" onClick={this.handleClickCancel}>Cancel</button>
+              <button type="submit">Add</button> <button type="button" onClick={this.handleClickCancel}>Cancel</button>
           </div>
           </form>
       </section>

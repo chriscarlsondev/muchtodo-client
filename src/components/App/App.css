@@ -3,14 +3,14 @@
 }
 
 body {
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   color: #000;
   line-height: 1.5;
 }
 
 main {
-  margin: 2%;
+  margin: 5px;
 }
 
 section {
@@ -33,22 +33,27 @@ section.landing-page-section {
 
 header {
   padding: 0;
-  margin: 0;
+  margin: 20px 5px 20px 5px;
   text-align: left;
   background: #fff;
 }
 
 h1 {
   text-align: left;
-  font-size: 30px;
+  font-size: 60px;
   color: #0197EC;
   font-family:'Heebo', sans-serif;
+  margin: 0;
+}
+
+.logo {
+  text-decoration: none;
 }
 
 h2 {
   font-family: 'Noto Sans', sans-serif;
   font-weight: normal;
-  margin: 40px 0 10px 0;
+  margin: 10px 0;
   padding: 0;
   font-size: 20px;
 }
@@ -66,8 +71,7 @@ footer {
 }
 
 button {
-  background-color: #21B573;
-  border: .0625rem solid #21B573;
+  background-color: #767676;
   border-radius: 5px;
   color: #FFF;
   padding: .9375rem 1.875rem;
@@ -165,7 +169,6 @@ table {
   color: 000;
   border-collapse: separate;
   border-spacing: 0;
-  padding: 5px;
 }
 
 th {
@@ -181,15 +184,15 @@ td {
 }
 
 th.check-col {
- width: 5%;
+ width: 10%;
 }
 
 th.task-col {
-  width: 50%;
+  width: 40%;
  }
 
 th.duedate-col{
-  width: 20%;
+  width: 25%;
  }
 
 th.category-col {

@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 
 export default class Footer extends Component {
   render() {
-    return <>
-        <p>MuchToDo. A web app from Chris Carlson.</p>
-    </>
-  }
+    return (
+        <footer>
+        <p>MuchToDo, a web app from <a href="http://www.chriscarlson.org/">Chris Carlson</a>.</p>
+        </footer>
+    )  
+}
 }

@@ -138,11 +138,9 @@ class App extends Component {
       handleMarkTaskComplete: this.handleMarkTaskComplete,
     }
     return (
-        <MuchToDoContext.Provider value={contextValue}>
+      <MuchToDoContext.Provider value={contextValue}>
+        <Header />
         <main role="main">
-          <header role="banner">
-            <Header />
-          </header>
           <Switch>
             <Route
               exact
@@ -166,10 +164,8 @@ class App extends Component {
             />
           </Switch>
         </main>
-        <footer>
-          <Footer />
-          </footer>
-          </MuchToDoContext.Provider>
+        <Footer />
+      </MuchToDoContext.Provider>
     )
   }
 }

@@ -26,7 +26,7 @@ export default class TaskList extends Component {
               <th className="check-col">&nbsp;</th>
               <th className="task-col">Task</th>
               <th className="duedate-col">Due Date</th>
-              <th className="category-col">Category</th>
+                <th className="category-col">Category</th>
             </tr>
             </thead>
             <tbody>
@@ -49,7 +49,7 @@ export default class TaskList extends Component {
               <th className="check-col">&nbsp;</th>
               <th className="task-col">Task</th>
               <th className="duedate-col">Due Date</th>
-              <th className="category-col">Category</th>
+                <th className="category-col">Category</th>
             </tr>
             </thead>
             <tbody>
