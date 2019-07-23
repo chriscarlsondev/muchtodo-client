@@ -8,7 +8,6 @@ import AddNewTaskPage from '../../routes/AddNewTaskPage/AddNewTaskPage'
 import AddNewCategoryPage from '../../routes/AddNewCategoryPage/AddNewCategoryPage'
 import { Route, Switch } from 'react-router-dom'
 import MuchToDoContext from '../../MuchToDoContext';
-import './Normalize.css'
 import './App.css'
 import config from '../../config';
 

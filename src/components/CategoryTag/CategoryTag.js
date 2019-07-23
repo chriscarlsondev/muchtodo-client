@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import MuchToDoContext from '../../MuchToDoContext';
-import './CategoryTag.css'
 
 export default class CategoryTag extends Component {
 

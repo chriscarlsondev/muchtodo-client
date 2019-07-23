@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './AddCategoryForm.css'
 import MuchToDoContext from '../../MuchToDoContext';
 
 export default class AddCategoryForm extends Component {

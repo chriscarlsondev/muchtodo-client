@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import CategoryTag from '../CategoryTag/CategoryTag'
-import './IncompleteTaskItem.css'
 import MuchToDoContext from '../../MuchToDoContext';
 
 

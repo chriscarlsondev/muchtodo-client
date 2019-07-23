@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './TaskList.css'
 import IncompleteTaskItem from '../IncompleteTaskItem/IncompleteTaskItem'
 import CompletedTaskItem from '../CompletedTaskItem/CompletedTaskItem'
 import MuchToDoContext from '../../MuchToDoContext';
