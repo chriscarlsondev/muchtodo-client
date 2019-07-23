@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
+  font-size: 1em;
   color: #000;
   line-height: 1.5;
 }
@@ -40,7 +40,7 @@ header {
 
 h1 {
   text-align: left;
-  font-size: 60px;
+  font-size: 3em;
   color: #0197EC;
   font-family:'Heebo', sans-serif;
   margin: 0;
@@ -52,15 +52,15 @@ h1 {
 
 h2 {
   font-family: 'Noto Sans', sans-serif;
-  font-weight: normal;
+  font-weight: bold;
   margin: 10px 0;
   padding: 0;
-  font-size: 20px;
+  font-size: 1.5em;
 }
 
 h3 {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 18px;
+  font-size: 1.25em;
   font-weight: normal;
   margin: 0 0 5px 0;
   padding: 0;
@@ -74,6 +74,7 @@ button {
   background-color: #767676;
   border-radius: 5px;
   color: #FFF;
+  font-size: 1em;
   padding: .9375rem 1.875rem;
   margin: 10px 10px 10px 0;
 }
@@ -99,8 +100,8 @@ input[type=text], input[type=date] {
 }
 
 input[type=checkbox] {
-  margin-left: 20px;
-  padding: 5px;
+  margin: 0;
+  padding: 0;
 }
 
 textarea:focus, input:focus {
@@ -183,8 +184,12 @@ td {
   border-bottom: 1px solid rgba(34,36,38,.1)
 }
 
+td.center{
+  text-align: center;
+}
+
 th.check-col {
- width: 10%;
+ width: 5%;
 }
 
 th.task-col {
