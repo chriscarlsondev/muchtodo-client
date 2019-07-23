@@ -25,11 +25,11 @@ An app that makes create and using your to do list easy. This means you can spen
 
 ## Screenshots
 
-### Home Screen
+### Homepage
 
-### Book Search Results and Selection Screen
+### Add Task Screen
 
-### Book Details Screen
+### Add Category Screen
 
 ## Authors
 * **Chris Carlson** - ** - Front-end and backe-end development, testing and styling
