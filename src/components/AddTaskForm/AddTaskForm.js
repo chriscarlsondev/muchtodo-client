@@ -6,6 +6,16 @@ export default class AddTaskForm extends Component {
 
   static contextType = MuchToDoContext;
 
+  state = {
+    selectedOption: '1'
+  }
+
+  handleCategoryChange = e => {
+    this.setState({
+      selectedOption: e.target.value
+    });
+  }
+  
   handleSubmit = e => {
     e.preventDefault();
     let newTask = {
@@ -20,7 +30,7 @@ export default class AddTaskForm extends Component {
 
   handleClickCancel = () => {
     this.props.history.push('/home')
-  };
+  }
  
   render() {
       return <>
@@ -34,8 +44,8 @@ export default class AddTaskForm extends Component {
             <input type="text" id="taskname" name="taskname" placeholder="Schedule a doctor's appointment" required />
             </div>
             <div className="form-section">
-              <p>Task Category <span className="optional">(Optional)</span></p>
-              {this.context.Categories.map((cat, i) => <label htmlFor={cat.id} key={i}><input type="radio" name="taskcategory" value={cat.id} id={cat.id} key={i}/> {cat.categoryname}</label>)}
+              <p>Task Category</p>
+              {this.context.Categories.map((cat, i) => <label htmlFor={cat.id} key={i}><input type="radio" name="taskcategory" value={cat.id} id={cat.id} key={i} checked={this.state.selectedOption === cat.id.toString()} onChange={this.handleCategoryChange} /> {cat.categoryname}</label>)}
             <Link to="/addnewcategory">+ Add New Category</Link>
           </div>
           <div className="form-section">

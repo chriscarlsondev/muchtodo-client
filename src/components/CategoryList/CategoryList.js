@@ -14,7 +14,7 @@ export default class CategoryList extends Component {
         let incompleteCategoryTaskList = Tasks.filter(task => task.taskstatus === 'I' && task.taskcategory === this.props.id);
         let completedCategoryTaskList = Tasks.filter(task => task.taskstatus === 'C' && task.taskcategory === this.props.id);
         return <>
-            <h2>{this.props.categoryname}</h2>
+            <h2>{this.props.categoryname} Tasks</h2>
             <table>
              <thead>
                <tr>
@@ -35,7 +35,7 @@ export default class CategoryList extends Component {
              key={i}
                {...task}
              />
-               )}
+              )}
              </tbody>
           </table>
           
