@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Navigation from '../Navigation/Navigation'
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 import LandingPage from '../../routes/LandingPage/LandingPage'
@@ -140,9 +139,6 @@ class App extends Component {
     }
     return (
         <MuchToDoContext.Provider value={contextValue}>
-        <nav role="navigation">
-          <Navigation />
-        </nav>
         <main role="main">
           <header role="banner">
             <Header />

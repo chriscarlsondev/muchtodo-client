@@ -15,12 +15,12 @@ export default class CategoryTag extends Component {
         if (this.props.taskcategory && Categories.length > 0) {
             let category = Categories.find(cat => cat.id === parseInt(this.props.taskcategory));
             return (
-                <span className='categorytag'>
+                <span className="tag violet">
                     {category.categoryname}
                 </span>
             )
         } else {
-            return (<span className='nocategorytag'>No category selected</span>);
+            return (<></>);
         }
     }
 }

@@ -4,42 +4,65 @@
 
 body {
   font-family: 'Noto Sans', sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   color: #000;
   line-height: 1.5;
 }
 
+main {
+  margin: 2%;
+}
+
 section {
   text-align: left;
-  padding: 1%;
+  padding: 0;
+  margin: 0;
   background: #fff;
   color: #000;
 }
 
 section.landing-page-section {
   min-height: 200px;
-  padding: 1% 0;
+  padding: 0;
   text-align: center;
 }
 
+.form-section {
+  margin-top: 30px;
+}
+
 header {
-  padding: 1% 1%;
+  padding: 0;
+  margin: 0;
   text-align: left;
   background: #fff;
 }
 
 h1 {
-  margin-top: 0;
-  margin-bottom: 0;
   text-align: left;
-  font-size: 40px;
+  font-size: 30px;
   color: #0197EC;
   font-family:'Heebo', sans-serif;
-  
+}
+
+h2 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: normal;
+  margin: 40px 0 10px 0;
+  padding: 0;
+  font-size: 20px;
+}
+
+h3 {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0 0 5px 0;
+  padding: 0;
 }
 
 footer {
-  padding: 1%;
+  padding: 10px;
 }
 
 button {
@@ -57,25 +80,31 @@ input {
 
 nav {
   padding: 5px;
-  background-image: #eee;
+  background: #f7f7f7;
 }
 
 nav a {
-  padding: 10px;
+  padding: 10px 10px 10px 0;
 }
 
-input[type=text] {
+input[type=text], input[type=date] {
   width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
 }
-input[type=date] {
-  width: 100%;
+
+input[type=checkbox] {
+  margin-left: 20px;
+  padding: 5px;
 }
+
 textarea:focus, input:focus {
-	border: 2px solid #21B573;
+	border: 2px solid #666;
 }
 
 label {
-  margin-right: 10px;
+  margin: 10px 0 10px 0;
   display: block;
 }
 
@@ -98,3 +127,71 @@ label {
 .completed-task-name {
   text-decoration: line-through;
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.optional {
+  color: #CCC;
+}
+
+.tag {
+  margin: 0;
+  padding: .5em 1em;
+  text-align: center;
+}
+.blue {
+  background-color: #2185d0;
+  color: #fff;
+}
+.gray {
+  background-color: #767676;
+  color: #fff;
+}
+.violet {
+  background-color: #6435c9;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  background: #fff;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: left;
+  color: 000;
+  border-collapse: separate;
+  border-spacing: 0;
+  padding: 5px;
+}
+
+th {
+  padding: .5em 0;
+  border-bottom: 1px solid rgba(34,36,38,.1);
+  font-weight: bold;
+  background: #eee;
+}
+
+td {
+  padding: 1em 0;
+  border-bottom: 1px solid rgba(34,36,38,.1)
+}
+
+th.check-col {
+ width: 5%;
+}
+
+th.task-col {
+  width: 50%;
+ }
+
+th.duedate-col{
+  width: 20%;
+ }
+
+th.category-col {
+  width: 25%;
+ }

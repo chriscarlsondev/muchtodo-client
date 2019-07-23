@@ -3,8 +3,13 @@ import CategoryTag from '../CategoryTag/CategoryTag'
 
 export default class CompletedTaskItem extends Component {
   render() {
-    return <>
-      <li><span className="completed-task-name">{this.props.taskname}</span>  | <CategoryTag taskcategory={this.props.taskcategory} /> | Due Date: {this.props.taskduedate ? this.props.taskduedate.split("T")[0] : 'None'}</li>
-    </>
+    return (
+      <tr>
+      <td>&nbsp;</td>
+      <td><span className="completed-task-name">{this.props.taskname}</span></td>
+      <td>{this.props.taskduedate ? this.props.taskduedate.split("T")[0] : ''}</td>
+      <td><CategoryTag taskcategory={this.props.taskcategory} /></td>
+      </tr>
+    )
   }
 }

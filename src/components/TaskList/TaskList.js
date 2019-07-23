@@ -19,26 +19,48 @@ export default class TaskList extends Component {
           <section>
               <header>
                   <h2>Incomplete Tasks</h2>
-              </header>
+          </header>
+          <table>
+            <thead>
+              <tr>
+              <th className="check-col">&nbsp;</th>
+              <th className="task-col">Task</th>
+              <th className="duedate-col">Due Date</th>
+              <th className="category-col">Category</th>
+            </tr>
+            </thead>
+            <tbody>
         {incompleteTaskList.map((task, i) =>
             <IncompleteTaskItem
             key={i}
               {...task}
             />
               )}
+            </tbody>
+          </table>
         </section>
         <section>
               <header>
                   <h2>Completed Tasks</h2>
               </header>
-              <ul>
+              <table>
+            <thead>
+              <tr>
+              <th className="check-col">&nbsp;</th>
+              <th className="task-col">Task</th>
+              <th className="duedate-col">Due Date</th>
+              <th className="category-col">Category</th>
+            </tr>
+            </thead>
+            <tbody>
             {completedTaskList.map((task, i) =>
               <CompletedTaskItem
                 key={i}
                     {...task}
                     />
                 )}
-              </ul>
+            </tbody>
+          </table>
         </section>
     </>
   }

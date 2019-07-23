@@ -26,11 +26,11 @@ export default class AddCategoryForm extends Component {
         </header>
          <form id="add-new-category" onSubmit={this.handleSubmit}>
           <div className="form-section">
-            <label htmlFor="category-name">Category Name:</label>
+            <label htmlFor="category-name">Category Name</label>
             <input type="text" id='description' name='description' placeholder="Personal" required />
           </div>
           <div className="form-section">
-            <button type="submit">Add Category</button> <button type="button" onClick={this.handleClickCancel}>Cancel</button>
+            <button type="submit">Add</button> <button type="button" onClick={this.handleClickCancel}>Cancel</button>
           </div>
               </form>
               </section>
