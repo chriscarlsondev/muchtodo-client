@@ -26,10 +26,13 @@ An app that makes create and using your to do list easy. This means you can spen
 ## Screenshots
 
 ### Homepage
+![homepage-screenshot](https://user-images.githubusercontent.com/49646269/61744838-bdeb1080-ad87-11e9-8231-203899831c2a.png)
 
 ### Add Task Screen
+![addtask-screenshot](https://user-images.githubusercontent.com/49646269/61744857-c7747880-ad87-11e9-9a5f-8b2185c0d19e.png)
 
 ### Add Category Screen
+![addcategory-screenshot](https://user-images.githubusercontent.com/49646269/61744874-d0fde080-ad87-11e9-8d64-7c72b53497a2.png)
 
 ## Authors
 * **Chris Carlson** - ** - Front-end and backe-end development, testing and styling
