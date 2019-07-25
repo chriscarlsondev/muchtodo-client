@@ -9,7 +9,6 @@ import { Route, Switch } from 'react-router-dom'
 import MuchToDoContext from '../../MuchToDoContext';
 import './App.css'
 import config from '../../config';
-
 class App extends Component {
 
   state = {
