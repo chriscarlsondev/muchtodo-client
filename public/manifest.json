@@ -1,6 +1,6 @@
 {
-  "short_name": "MuchToDo",
-  "name": "MuchToDo App",
+  "short_name": "muchtodo",
+  "name": "muchtodoapp",
   "icons": [
     {
       "src": "favicon.ico",
