@@ -7,7 +7,7 @@ An app that makes creating and using your to do list easy. This means you can sp
 * HTML
 * CSS
 * JavaScript
-* JQuery
+* ReactJS
 
 ## Features
 * Simple page for adding tasks
